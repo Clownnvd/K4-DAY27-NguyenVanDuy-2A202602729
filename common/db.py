@@ -15,8 +15,10 @@ from pathlib import Path
 from typing import Any, AsyncIterator
 
 import aiosqlite
+from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+from langgraph.checkpoint.sqlite.aio import AsyncSqliteSaver
 
-from common.schemas import AuditEntry
+from common.schemas import AuditEntry, PRAnalysis
 
 
 SCHEMA_FILE = Path(__file__).resolve().parent.parent / "audit" / "schema.sql"
@@ -25,6 +27,17 @@ SCHEMA_FILE = Path(__file__).resolve().parent.parent / "audit" / "schema.sql"
 def db_path() -> str:
     """Return the SQLite file path (override with HITL_DB_PATH env var)."""
     return os.environ.get("HITL_DB_PATH", "hitl_audit.db")
+
+
+@asynccontextmanager
+async def checkpoint_saver(path: str | None = None) -> AsyncIterator[AsyncSqliteSaver]:
+    """Open a durable saver with an explicit allowlist for our state model."""
+    conn = await aiosqlite.connect(path or db_path())
+    serializer = JsonPlusSerializer(allowed_msgpack_modules=[PRAnalysis])
+    try:
+        yield AsyncSqliteSaver(conn, serde=serializer)
+    finally:
+        await conn.close()
 
 
 async def _ensure_schema(conn: aiosqlite.Connection) -> None:

@@ -1,0 +1,167 @@
+[
+  {
+    "thread_id": "offline-medium-1",
+    "pr_url": "https://github.com/offline/fixture/pull/1",
+    "action": "fetch_pr",
+    "confidence": 0.0,
+    "risk_level": "med",
+    "reviewer_id": null,
+    "decision": "pending",
+    "reason": "Fetched 1 files, head=abc1234",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-medium-1",
+    "pr_url": "https://github.com/offline/fixture/pull/1",
+    "action": "analyze",
+    "confidence": 0.65,
+    "risk_level": "med",
+    "reviewer_id": null,
+    "decision": "pending",
+    "reason": "Deterministic lab evidence",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-medium-1",
+    "pr_url": "https://github.com/offline/fixture/pull/1",
+    "action": "route",
+    "confidence": 0.65,
+    "risk_level": "med",
+    "reviewer_id": null,
+    "decision": "pending",
+    "reason": "Routed to human_approval",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-medium-1",
+    "pr_url": "https://github.com/offline/fixture/pull/1",
+    "action": "human_approval",
+    "confidence": 0.65,
+    "risk_level": "med",
+    "reviewer_id": null,
+    "decision": "pending",
+    "reason": "Waiting for reviewer approval",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-medium-1",
+    "pr_url": "https://github.com/offline/fixture/pull/1",
+    "action": "human_approval",
+    "confidence": 0.65,
+    "risk_level": "med",
+    "reviewer_id": "NguyenVanDuy",
+    "decision": "approve",
+    "reason": "Đã kiểm tra migration",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-medium-1",
+    "pr_url": "https://github.com/offline/fixture/pull/1",
+    "action": "commit",
+    "confidence": 0.65,
+    "risk_level": "med",
+    "reviewer_id": "NguyenVanDuy",
+    "decision": "approve",
+    "reason": "Final action: committed",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "fetch_pr",
+    "confidence": 0.0,
+    "risk_level": "med",
+    "reviewer_id": null,
+    "decision": "pending",
+    "reason": "Fetched 1 files, head=abc1234",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "analyze",
+    "confidence": 0.4,
+    "risk_level": "high",
+    "reviewer_id": null,
+    "decision": "pending",
+    "reason": "Deterministic lab evidence",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "route",
+    "confidence": 0.4,
+    "risk_level": "high",
+    "reviewer_id": null,
+    "decision": "escalate",
+    "reason": "Routed to escalate",
+    "execution_time_ms": 14
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "escalate",
+    "confidence": 0.4,
+    "risk_level": "high",
+    "reviewer_id": null,
+    "decision": "escalate",
+    "reason": "Vì sao thay đổi xác thực tại app.py:10 là an toàn?",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "escalate_response",
+    "confidence": 0.4,
+    "risk_level": "high",
+    "reviewer_id": "NguyenVanDuy",
+    "decision": "escalate",
+    "reason": "Reviewer answered 1 question(s)",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "synthesize",
+    "confidence": 0.82,
+    "risk_level": "low",
+    "reviewer_id": "NguyenVanDuy",
+    "decision": "approve",
+    "reason": "Deterministic lab evidence",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "human_approval",
+    "confidence": 0.82,
+    "risk_level": "low",
+    "reviewer_id": null,
+    "decision": "pending",
+    "reason": "Waiting for reviewer approval",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "human_approval",
+    "confidence": 0.82,
+    "risk_level": "low",
+    "reviewer_id": "NguyenVanDuy",
+    "decision": "approve",
+    "reason": "Đã kiểm tra bản review tinh chỉnh",
+    "execution_time_ms": 0
+  },
+  {
+    "thread_id": "offline-escalate-2",
+    "pr_url": "https://github.com/offline/fixture/pull/2",
+    "action": "commit",
+    "confidence": 0.82,
+    "risk_level": "low",
+    "reviewer_id": "NguyenVanDuy",
+    "decision": "approve",
+    "reason": "Final action: committed",
+    "execution_time_ms": 0
+  }
+]

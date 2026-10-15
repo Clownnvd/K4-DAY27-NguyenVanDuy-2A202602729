@@ -117,7 +117,7 @@ The agent calls the GitHub REST API directly to **read PR diffs** and **post rev
 3. Click **Generate token** → copy the `ghp_...` value immediately (shown only once).
 4. Paste into `.env`:
    ```bash
-   echo "GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" >> .env
+   echo "GITHUB_TOKEN=YOUR_GITHUB_TOKEN" >> .env
    ```
 5. Verify:
    ```bash
@@ -312,3 +312,28 @@ rm hitl_audit.db
 ```bash
 sqlite3 hitl_audit.db "SELECT action, confidence, decision, reviewer_id FROM audit_events ORDER BY id;"
 ```
+
+## Nguyễn Văn Duy — completed submission
+
+The student implementation completes all five exercises and adds deterministic
+regression tests, an offline evidence runner, a fail-closed GitHub write gate,
+and an explicit LangGraph checkpoint serializer allowlist.
+
+```bash
+uv sync
+uv run pytest -q
+uv run python -X utf8 scripts/run_acceptance.py
+uv run python -X utf8 scripts/run_offline_demo.py
+uv run streamlit run app.py
+```
+
+The evidence run covers both human paths:
+
+- `65%` → approval interrupt → explicit approval → commit.
+- `40%` → escalation questions → synthesis at `82%` → final approval interrupt → commit.
+
+No GitHub comment is posted by default. Set `ALLOW_GITHUB_WRITE=1` only when a
+reviewer explicitly approves that external action. See
+[`VERIFICATION_RECEIPT.md`](VERIFICATION_RECEIPT.md),
+[`artifacts/day27_audit_receipt.json`](artifacts/day27_audit_receipt.json), and
+[`evidence/streamlit-sessions.png`](evidence/streamlit-sessions.png).
